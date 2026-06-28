@@ -150,6 +150,14 @@ public final class MainFrame extends JFrame {
         connMenu.add(exitItem);
         menuBar.add(connMenu);
 
+        // 工具 menu
+        JMenu toolsMenu = new JMenu("工具(T)");
+        toolsMenu.setMnemonic('T');
+        JMenuItem toolboxItem = new JMenuItem("工具箱...");
+        toolboxItem.addActionListener(e -> onOpenToolbox());
+        toolsMenu.add(toolboxItem);
+        menuBar.add(toolsMenu);
+
         // 设置 menu
         JMenu settingsMenu = new JMenu("设置(S)");
         settingsMenu.setMnemonic('S');
@@ -293,6 +301,11 @@ public final class MainFrame extends JFrame {
 
     private void onThemeSettings() {
         SettingsDialog d = new SettingsDialog(this);
+        d.setVisible(true);
+    }
+
+    private void onOpenToolbox() {
+        ToolboxDialog d = new ToolboxDialog(this);
         d.setVisible(true);
     }
 
